@@ -4,8 +4,12 @@ const mongoose = require("mongoose");
 require("dotenv").config();
 
 const app = express();
+const studentRoutes = require("./routes/studentRoutes");
+const attendanceRoutes = require("./routes/attendanceRoutes");
 
 app.use(express.json());
+app.use("/api/students", studentRoutes);
+app.use("/api/attendance", attendanceRoutes);
 
 app.get("/", (req, res) => {
   res.json({
